@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_home/page/find_page.dart';
+import 'package:flutter_home/page/plaza_page.dart';
 
 void main() => runApp(new MyApp());
 
@@ -44,15 +47,22 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _currentIndex = 0;
 
-
+  SystemUiOverlayStyle overlayStyle = const SystemUiOverlayStyle(
+    systemNavigationBarColor: const Color(0xffff0000),
+    systemNavigationBarDividerColor: const Color(0xff00ff00),
+    systemNavigationBarIconBrightness: Brightness.dark,
+    statusBarBrightness: Brightness.dark,
+    statusBarColor: const Color(0x00000000),
+    statusBarIconBrightness: Brightness.dark,
+  );
   @override
   Widget build(BuildContext context) {
 
     return new Scaffold(
       bottomNavigationBar: new BottomNavigationBar(
           items: [
-            new BottomNavigationBarItem(icon: new Icon(Icons.email), title: new Text('')),
-            new BottomNavigationBarItem(icon: new Icon(Icons.edit), title: new Text(''))
+            new BottomNavigationBarItem(icon: new Icon(Icons.email), title: new Text('广场')),
+            new BottomNavigationBarItem(icon: new Icon(Icons.edit), title: new Text('发现'))
           ],
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -72,4 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
       default: return new PlazaPage();
     }
  }
+
+
+
 }

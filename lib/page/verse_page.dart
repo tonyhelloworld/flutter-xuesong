@@ -1,19 +1,19 @@
-import 'dart:_http';
+
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_home/config.dart';
 
 
-import 'package:http/http.dart';
 
-
-class VsersePage extends StatefulWidget {
+class VersePage extends StatefulWidget {
   @override
-  _VsersePageState createState() => new _VsersePageState();
+  _VersePageState createState() => new _VersePageState();
 }
 
-class _VsersePageState extends State<VsersePage> {
+class _VersePageState extends State<VersePage> {
   TextEditingController _controller = new TextEditingController();
   List<String> result = new List();
   @override
@@ -93,6 +93,11 @@ class _VsersePageState extends State<VsersePage> {
   }
 
   Widget _buildItem(BuildContext context, int index) {
+    return new Card(
+      child: new ListTile(
+        title: new Text(result[index]),
+      ),
+    );
   }
 
   void _showError() {
